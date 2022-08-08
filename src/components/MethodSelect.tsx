@@ -10,14 +10,16 @@ const MethodSelect = () => {
   switch (method) {
     case 0:
       return (
-        <View style={tailwind("flex flex-row items-center ")}>
+        <View style={tailwind("flex flex-row items-center")}>
           <Image
             style={tailwind("w-8 h-8")}
             resizeMode="contain"
             source={require("../../assets/epic.png")}
           />
           <TextInput
-            style={tailwind("rounded-lg p-2 ml-2 my-4 flex-1 bg-[#E3E3E8]")}
+            style={tailwind(
+              "rounded-lg p-2 ml-2 my-4 flex-1 bg-[#E3E3E8] dark:bg-[#1c1c1e]"
+            )}
             placeholder="Enter an Epic Games username"
             value={username}
             onChangeText={(text) => setUsername(text)}
@@ -74,7 +76,7 @@ const MethodSelect = () => {
           />
           <TextInput
             style={tailwind("rounded-lg p-2 ml-2 my-4 flex-1 bg-[#E3E3E8]")}
-            placeholder="Enter an PlayStaion username"
+            placeholder="Enter an PlayStation username"
             value={username}
             onChangeText={(text) => setUsername(text)}
             autoCapitalize="none"

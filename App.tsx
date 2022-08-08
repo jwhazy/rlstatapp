@@ -7,6 +7,7 @@ import User from "./src/screens/User";
 import { AppContext } from "./src/components/AppContext";
 import { Method } from "./src/types/method";
 import { useState } from "react";
+import { Appearance } from "react-native";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -15,6 +16,8 @@ export type RootStackParamList = {
 
 export default function App() {
   const Stack = createNativeStackNavigator<RootStackParamList>();
+
+  const colorScheme = Appearance.getColorScheme();
 
   const [method, setMethod] = useState<Method>(0);
 
@@ -29,7 +32,10 @@ export default function App() {
               component={Home}
               options={{
                 headerLargeTitle: true,
-                headerStyle: { backgroundColor: "#F2F2F6" },
+                headerStyle: {
+                  backgroundColor:
+                    colorScheme === "light" ? "#F2F2F6" : "#000000",
+                },
                 headerLargeTitleShadowVisible: false,
                 headerShadowVisible: false,
                 title: "Statistics Lookup",
@@ -40,7 +46,10 @@ export default function App() {
               component={User}
               options={({ route }) => ({
                 headerLargeTitle: true,
-                headerStyle: { backgroundColor: "#F2F2F6" },
+                headerStyle: {
+                  backgroundColor:
+                    colorScheme === "light" ? "#F2F2F6" : "#000000",
+                },
                 headerLargeTitleShadowVisible: false,
                 headerShadowVisible: false,
                 title: route.params.username as any,

@@ -64,7 +64,7 @@ const User = () => {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    getStats(username);
+    getStats(username).then(() => setRefreshing(false));
   }, []);
 
   useEffect(() => {

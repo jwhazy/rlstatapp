@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
   Pressable,
+  Appearance,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTailwind } from "tailwind-rn/dist";
@@ -20,6 +21,9 @@ import MethodSelect from "../components/MethodSelect";
 import { AppContext } from "../components/AppContext";
 import { Method } from "../types/method";
 
+// Disabled Leaderboard
+//import Leaderboard from "../components/leaderboards";
+
 const Home = () => {
   const tailwind = useTailwind();
 
@@ -27,11 +31,11 @@ const Home = () => {
   const navigate =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
-    <ScreenView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={tailwind("h-full px-6")}
-      >
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      style={tailwind("h-full px-6")}
+    >
+      <ScreenView>
         <SegmentedControl
           values={["Epic", "Steam ", "Xbox", "PlayStation"]}
           selectedIndex={0}
@@ -56,11 +60,14 @@ const Home = () => {
           <Text style={tailwind("text-white text-center")}>Go</Text>
         </Pressable>
 
-        <Text style={tailwind("text-center mt-16")}>
-          Powered by the Tracker Network
+        {/* Disabled Leaderboard */}
+        {/* <Leaderboard /> */}
+
+        <Text style={tailwind("text-center mt-8")}>
+          RL Stats app powered by the Tracker Network
         </Text>
-      </ScrollView>
-    </ScreenView>
+      </ScreenView>
+    </ScrollView>
   );
 };
 
